@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add user</title>
+</head>
+<body>
+<!-- при нажатии на кнопку запрос методом POST будет направлен на адрес: /addUser -->
+<!-- POST-запрос необходим, чтобы введенные параметры не были видны в адресной строке браузера -->
+<!-- при GET-запросе они будут отображаться в адресной строке браузера -->
+<!-- для обработки этого запроса в классе UserController будет использован метод с аннотацией PostMapping("/addUser") -->
+<form method="post" action="/addUser">
+    <!-- поля формы для ввода значений -->
+    <p><input type="text" name="id" placeholder="Enter id"/></p>
+    <p><input type="text" name="login" placeholder="Enter login"/></p>
+    <p><input type="text" name="password" placeholder="Enter password"/></p>
+    <!-- кнопка -->
+    <p><input type="submit" value="Добавить пользователя"/></p>
+</form>
+<!-- ссылка для возврата на главную страницу -->
+<p><a href="/">Вернуться на главную</a></p>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User list</title>
+</head>
+<body>
+<!--<p th:text="${userList}"></p>-->
+
+<!-- принимаем Model (обращаемся к Model) с данными из кода - userList -->
+<!-- запускаем цикл по Model -->
+<th:block th:each="user : ${userList}">
+    <!--    Без id:-->
+    <!--    <p>Login: <th:block th:text="${user.getLogin()}"/>, Password: <th:block th:text="${user.getPassword()}"/> </p>-->
+    <!--    <br/>-->
+    <!--    <p>Login: <span th:text="${user.getLogin()}"/> </p>-->
+
+
+    <!--    Через Id-->
+    <!-- для каждого юзера -->
+    <a th:href="@{/updateUser/{userId}(userId = ${user.getId()})}">
+        <!-- выводим login и password -->
+        <p>Login: <th:block th:text="${user.getLogin()}"/>, Password: <th:block th:text="${user.getPassword()}"/> </p>
+    </a>
+</th:block>
+<p><a href="/">Вернуться на главную</a></p>
+</body>
+</html>
