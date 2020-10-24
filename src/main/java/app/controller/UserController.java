@@ -89,4 +89,15 @@ public class UserController {
         // в методе allUser происходит вставка Model, поэтому делается redirect, после которого Spring сделает запрос на открытие страницы и вставит туда allUser
         return "redirect:/allUser";
     }
+
+    @GetMapping("/findUserById/{userId}")
+    public String findById(@PathVariable (name = "userId") int userId, Model model){
+        Optional<User> first = UserService.userList.stream().filter(user -> user.getId() == userId).findFirst();
+        first.ifPresent(user -> {
+            user.getLogin();
+            user.getPassword();
+            model.addAttribute("user", user);
+        });
+        return "userCard";
+    }
 }

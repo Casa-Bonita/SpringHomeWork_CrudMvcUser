@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Find user by id</title>
+</head>
+<body>
+<!-- при нажатии на кнопку запрос методом POST будет направлен на адрес: /addUser -->
+<!-- POST-запрос необходим, чтобы введенные параметры не были видны в адресной строке браузера -->
+<!-- при GET-запросе они будут отображаться в адресной строке браузера -->
+<!-- для обработки этого запроса в классе UserController будет использован метод с аннотацией PostMapping("/addUser") -->
+<form method="get" action="/findUserById">
+    <!-- поля формы для ввода значений -->
+    <p><input type="text" name="id" placeholder="Enter id"/></p>
+    <!-- кнопка -->
+    <p><input type="submit" value="Найти пользователя"/></p>
+</form>
+<!-- ссылка для возврата на главную страницу -->
+<p><a href="/">Вернуться на главную</a></p>
+</body>
+</html>
