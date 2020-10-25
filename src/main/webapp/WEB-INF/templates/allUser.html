@@ -20,7 +20,7 @@
     <!-- для каждого юзера -->
     <a th:href="@{/updateUser/{userId}(userId = ${user.getId()})}">
         <!-- выводим login и password -->
-        <p>Login: <th:block th:text="${user.getLogin()}"/>, Password: <th:block th:text="${user.getPassword()}"/> </p>
+        <p>Id: <th:block th:text="${user.getId()}"/>, Login: <th:block th:text="${user.getLogin()}"/>, Password: <th:block th:text="${user.getPassword()}"/> </p>
     </a>
 </th:block>
 <p><a href="/">Вернуться на главную</a></p>
