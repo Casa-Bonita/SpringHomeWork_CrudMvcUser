@@ -14,6 +14,7 @@ import java.util.Optional;
 @Controller
 public class UserController {
 
+    // означает, что метод allUserIndex будет обработывать Get-запрос, который идёт по адресу allUser
     @GetMapping("/allUser")
     // в качестве парметра принимаем Model
     // Model - это управляемый Spring-ом класс, который мы не создаём
@@ -90,12 +91,10 @@ public class UserController {
         return "redirect:/allUser";
     }
 
-    @GetMapping("/findUserById/{userId}")
-    public String findById(@PathVariable (name = "userId") int userId, Model model){
+    @GetMapping("/findById/{userId}")
+    public String findById(@RequestParam (name = "userId") int userId, Model model){
         Optional<User> first = UserService.userList.stream().filter(user -> user.getId() == userId).findFirst();
         first.ifPresent(user -> {
-            user.getLogin();
-            user.getPassword();
             model.addAttribute("user", user);
         });
         return "userCard";
